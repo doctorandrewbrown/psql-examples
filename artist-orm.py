@@ -1,5 +1,6 @@
+##########################################################################
 # Program using "sqlalchemy" to do CRUD on music data tables in chinook db
-########################################################################
+##########################################################################
 
 from sqlalchemy import (
     create_engine, Column, Float, ForeignKey, Integer, String

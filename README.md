@@ -9,4 +9,5 @@ $ psql # call postgresql prompt (at main prompt)
 \c chinook # connect to chinook db (for example)
 \dt # display tables in connected db
 \q # quit psql prompt
+ctrl+z # exit table list etc
 ```

@@ -1,3 +1,9 @@
+########################################################################
+# This program uses "sqlalchemy" ORM library
+# The program creates a class based model of a table called "Shopping" 
+# in chinook db and shows how sessions are used to do CRUD operations
+########################################################################
+
 from sqlalchemy import (
     create_engine, Column, Float, ForeignKey, Integer, String
 )
@@ -27,26 +33,31 @@ session = Session()
 base.metadata.create_all(db)
 
 
-#Select all records from the "Shopping" table
+# Select all records from the "Shopping" table
 '''shopping = session.query(Shopping)
 for item in shopping:
      print(item.Item_id, item.Name, item.Type, sep=" | ")'''
 
-#Select all records from the "Shopping" table where "Type" is 'meat'
+# Select all records from the "Shopping" table where "Type" is 'meat'
 '''shopping = session.query(Shopping).filter(Shopping.Type=="meat").all()
 for item in shopping:
      print(item.Item_id, item.Name, item.Type, sep=" | ")'''
 
-#Add row to "Shopping" table. Note autoincrement of PK 
-shopping = Shopping(Name='carrot', Type= 'veg')
+# Add row to "Shopping" table. Note autoincrement of PK 
+shopping = Shopping(Name = 'milk', Type = 'dairy')
 session.add(shopping)
 session.commit()
 
-#Delete row from "Shopping" table by Item_id
+# Add row to "Shopping" table. Note autoincrement of PK 
+shopping = Shopping(Name = 'chicken', Type = 'meat')
+session.add(shopping)
+session.commit()
+
+# Delete row from "Shopping" table by Item_id
 '''shopping = session.query(Shopping).filter_by(Item_id=1).delete()
 session.commit()'''
 
-#Update Type field in shopping table
+# Update Type field in shopping table
 '''shopping = session.query(Shopping).filter_by(Item_id=3).first()
 shopping.Type="meat"
 session.commit()'''
@@ -54,4 +65,5 @@ session.commit()'''
 # loop through shopping list and print 
 shopping_list = session.query(Shopping)
 for item in shopping_list:
-    print(item.Name)
+    # get "Name" property (field) from the query returned
+    print(item.Name, item.Type, sep = "|") 

@@ -1,5 +1,7 @@
+# Program to show use of "psychopg2" library to
+# execute raw SQL operations 
+###############################################
 import psycopg2
-
 
 # connect to "chinook" database
 connection = psycopg2.connect(database="chinook")

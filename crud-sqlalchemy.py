@@ -1,3 +1,6 @@
+# CRUD using "sqlalchemy" ORM 
+##############################
+
 from sqlalchemy import (
     create_engine, Column, Integer, String
 )
@@ -42,11 +45,11 @@ grace_hopper = Programmer(first_name = "Grace",
     famous_for = "COBOL language")
 
 # Add (CREATE) instances to session individually
-#session.add(ada_lovelace)
-#session.add(grace_hopper)
+session.add(ada_lovelace)
+session.add(grace_hopper)
 
 # Commit all together
-#session.commit()
+session.commit()
 
 # READ all rows from "Programmer" table
 results = session.query(Programmer)
